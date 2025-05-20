@@ -5,7 +5,7 @@ Dataset: MIR-WM811K http://mirlab.org/dataset/public/
 
 Indane Final Project EDA.ipynb: Conducting EDA, class balancing, wafer map resizing, augmentation, reduction, removing isolated defects, forming validation/test/training sets
 
-Indane Final Project EDA 2 YOLO.ipynb: Conducint EDA, class balancing, and forming validation/test/training sets for YOLO modeling
+Indane Final Project EDA 2 YOLO.ipynb: Conducing EDA, class balancing, and forming validation/test/training sets for YOLO modeling
 
 Indane Final Project Feature Creation.ipynb: Creating radial and regional features
 
