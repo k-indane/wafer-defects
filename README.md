@@ -1,18 +1,18 @@
 # wafer-defects
-An Analysis of Wafer Defect Patterns to Assess Yield Impact, Prevalence, and Automate Wafer Defect Classification
+AN ANALYSIS OF DEFECT PATTERNS FOR AUTOMATED WAFER DEFECT CLASSIFICATION AND SPATIAL LOCALIZATION
 
 Dataset: MIR-WM811K http://mirlab.org/dataset/public/
 
-Indane Final Project Report.pdf: Summary, Introduction, EDA, Methodology, Feature Creation, Modeling, Results, Recommendations
+Indane Final Project EDA.ipynb: Conducting EDA, class balancing, wafer map resizing, augmentation, reduction, removing isolated defects, forming validation/test/training sets
 
-Indane Final Project EDA.ipynb: Conducting EDA, assessing yield impact, prevalence, baseline process health, and root causing
+Indane Final Project EDA 2 YOLO.ipynb: Conducint EDA, class balancing, and forming validation/test/training sets for YOLO modeling
 
-Indane Final Project Feature Creation.ipynb: Creating radial and regional features. Data augmentations/reduction, validation/training sets, removing isolated defects
-
-Indane Final Project kNN Modelling.ipynb: k-NN Model with radial and regional features
+Indane Final Project Feature Creation.ipynb: Creating radial and regional features
 
 Indane Final Project RF Modelling.ipynb: Random Forest Model with radial and regional features
 
-Indane Final Project CNN Modelling.ipynb: Three-block custom CNN Model
+Indane Final Project CNN Modelling.ipynb: Three-block custom CNN Model and results
 
-Indane Final Project Pretrained CNN Modelling.ipynb: MobileNetv2 Model
+Indane Final Project Pretrained CNN Modelling.ipynb: MobileNetv2 Model and results
+
+Indane Final Project YOLO Modelling.ipynb: YOLOv10s Model and results
