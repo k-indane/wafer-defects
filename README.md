@@ -45,44 +45,45 @@ Image → Preprocessing → CNN → (conditional) YOLO → Results
 Core inference logic is implemented in src/wafer/pipeline.py
 
 # Repository Structure
+```
 wafer-defects/
-  artifacts/
-    cnn/
-      cnn_model.keras
-      classes.json
-    yolo/
-      best.pt
-
-  docs/
-    An Analysis of Defect Patterns for Automated Wafer Defect Classification.pdf
-
-  notebooks/
-    EDA.ipynb
-    CNN Modeling.ipynb
-    MobileNetV2 Modeling.ipynb
-    YOLO Modeling.ipynb
-    Additional modeling notebooks
-
-  src/
-    wafer/
-      preprocess.py
-      pipeline.py
-      __init__.py
-
-  scripts/
-    test_inference.py
-
-  service/
-    app.py
-
-  tests/
-    data/
-      Sample wafer images for inference testing
-
-  dev_env.bat
-  .gitignore
-  README.md
-
+├── artifacts/
+│   ├── cnn/
+│   │   ├── cnn_model.keras
+│   │   └── classes.json
+│   └── yolo/
+│       └── best.pt
+│
+├── docs/
+│   └── An Analysis of Defect Patterns for Automated Wafer Defect Classification.pdf
+│
+├── notebooks/
+│   ├── EDA.ipynb
+│   ├── CNN Modeling.ipynb
+│   ├── MobileNetV2 Modeling.ipynb
+│   ├── YOLO Modeling.ipynb
+│   └── Additional modeling notebooks
+│
+├── src/
+│   └── wafer/
+│       ├── preprocess.py
+│       ├── pipeline.py
+│       └── __init__.py
+│
+├── scripts/
+│   └── test_inference.py
+│
+├── service/
+│   └── app.py
+│
+├── tests/
+│   └── data/
+│       └── Sample wafer images for inference testing
+│
+├── dev_env.bat
+├── .gitignore
+└── README.md
+```
 
 # Running Inference
 Activate environment with dev_ent.bat
