@@ -96,23 +96,23 @@ Run inference on sample images: python scripts/test_inference.py
 
 # Detailed Technical Report
 A comprehensive report accompanies this project and covers:
-• Exploratory data analysis
-• Preprocessing
-• Feature Creations
-• RF/CNN/MobileNetv2/YOLO architecture and training
-• Hyperparameter tuning
-• Model evaluation
-• Benchmarking
-• Design tradeoffs
+- Exploratory data analysis
+- Preprocessing
+- Feature creation
+- RF/CNN/MobileNetv2/YOLO architecture and training
+- Hyperparameter tuning
+- Model evaluation
+- Benchmarking
+- Design tradeoffs
 Located in docs/An Analysis of Defect Patterns for Automated Wafer Defect Classification.pdf
 
 # Deployment Readiness
 This project was structured with deployment in mind:
-• Separation of preprocessing, inference, and service
-• Conditional routing logic
-• Production style JSON outputs
-• FastAPI service scaffold
-• Docker-ready structure
+- Separation of preprocessing, inference, and service
+- Conditional routing logic
+- Production style JSON outputs
+- FastAPI service scaffold
+- Docker-ready structure
 
 # Author
 Kaustubh Indane
