@@ -7,32 +7,29 @@ This project implements an end-to-end machine learning inference pipeline for an
 3. Returns structured outputs suitable for APIs, visualization, or downstream automation
 
 # Model Architecture
-Input:
-Grayscale wafer defect map image
-0 = No defect / Background
-1 = Defect
+Input is grayscale wafer defect map image:
+- 0 = No defect / Background
+- 1 = Defect
 
-Output:
-One of nine defect classes:
-none
-Loc
-Edge-Loc
-Center
-Edge-Ring
-Scratch
-Random
-Near-full
-Donut
+Output is one of nine defect classes:
+- none
+- Loc
+- Edge-Loc
+- Center
+- Edge-Ring
+- Scratch
+- Random
+- Near-full
+- Donut
 
 The CNN performs wafer-level defect detection and determines whether spatial localization is required. reducing unnecessary computation.
 
-Spatial Detection w/YOLO:
-Executed only for meaningful defect classes:
-Loc
-Edge-Loc
-Center
-Scratch
-Donut
+Spatial Detection w/YOLO executed only for meaningful defect classes:
+- Loc
+- Edge-Loc
+- Center
+- Scratch
+- Donut
 
 # Model Benchmarking
 In addition to the final architecture, this project evaluated alternative architectures to establish performance baselines.
