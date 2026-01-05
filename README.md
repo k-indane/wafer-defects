@@ -75,26 +75,73 @@ wafer-defects/
 ├── tests/
 │   └── data/
 │       └── Sample wafer images for inference testing
-│
-├── dev_env.bat
 ├── .gitignore
+├── requirements.txt
 └── README.md
 ```
 
-# Running Inference
-Activate environment with dev_ent.bat
+# Inference Guide
 
-Run inference on sample images: python scripts/test_inference.py
+This section explains how to:
+1. Setup python environment
+2. Launch FASTAPI inference service
+3. Run inference via Swagger UI (or)
+4. Run inference via curl (or)
+5. Run inference without FastAPI service using batch script
 
-  Example Output:
-  
-  pred: Center | yolo: True | det: 1
-  
-  pred = CNN predicted class
-  
-  yolo = whether YOLO was executed
-  
-  det = number of detected bounding boxes
+## Create and activate environment from repo root (conda example)
+
+conda create -n wafer-infer python=3.10 -y
+
+conda activate wafer-infer
+
+pip install -r requirements.txt
+
+## Launch FastAPI Service
+
+uvicorn service.app:app --host 0.0.0.0 --port 8000 --reload
+
+### Available endpoints
+- Health check: http://localhost:8000/health
+- Interactive API (Swagger UI): http://localhost:8000/docs
+
+## Run Inference using Swagger (Recommended)
+1. Expand POST /pipeline endpoint
+2. Click 'Try it out'
+3. Upload a wafer map image from tests/data/
+5. Click Execute
+
+You will recieve a JSON output.
+
+## Annotated image via Swagger (Recommended)
+1. Expand POST /pipeline/annotated endpoint
+2. Click 'Try it out'
+3. Upload a wafer map image from tests/data/
+5. Click Execute
+
+You will recieve a PNG image with annotated bounding boxes.
+
+## Run Inference using curl
+
+### JSON inference
+
+curl -X POST "http://localhost:8000/pipeline" -F "file=@tests/data/center_9355.png"
+
+### Annoated image output
+
+curl -X POST "http://localhost:8000/pipeline" -F "file=@tests/data/center_9355.png" --output annotated.png
+
+Image will save in current directory.
+
+You can stop FastAPI server in the uvicorn terminal with 'Ctrl + C'
+
+## Batch Annotation Script
+
+The batch annotation script runs inference on all test images in tests/data/ and outputs to outputs/annotated/
+
+Run the script in repo root
+
+python scripts/annotate_test_images.py
 
 # Detailed Technical Report
 A comprehensive report accompanies this project and covers:
@@ -109,16 +156,9 @@ A comprehensive report accompanies this project and covers:
   
 Located in docs/An Analysis of Defect Patterns for Automated Wafer Defect Classification.pdf
 
-# Deployment Readiness
-This project was structured with deployment in mind:
-- Separation of preprocessing, inference, and service
-- Conditional routing logic
-- Production style JSON outputs
-- FastAPI service scaffold
-- Docker-ready structure
-
 # Author
 Kaustubh Indane
+
 M.S. Data Science AI - Northwestern University
 
 Background in semiconductor process integration
