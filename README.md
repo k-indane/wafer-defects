@@ -95,7 +95,7 @@ Run inference on sample images: python scripts/test_inference.py
   det = number of detected bounding boxes
 
 # Detailed Technical Report
-A comprehensive research-style report accompanies this project and covers:
+A comprehensive report accompanies this project and covers:
 • Exploratory data analysis
 • Preprocessing
 • Feature Creations
