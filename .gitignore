@@ -1,0 +1,33 @@
+# ----------------------
+# Python
+# ----------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ----------------------
+# Conda / env
+# ----------------------
+.env
+.env.*
+.conda/
+*.conda
+
+# ----------------------
+# OS-specific
+# ----------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# Jupyter
+# ----------------------
+.ipynb_checkpoints/
+
+# ----------------------
+# Model artifacts
+# ----------------------
+artifacts/yolo/*.pt
+artifacts/yolo/*.onnx
+artifacts/yolo/*.engine
