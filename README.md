@@ -39,6 +39,7 @@ MobileNetv2 was benchmarked as an industry-standard lightweight CNN frequently u
 # Inference Pipeline
 
 Image → Preprocessing → CNN → (conditional) YOLO → Results
+
 Core inference logic is implemented in src/wafer/pipeline.py
 
 # Repository Structure
@@ -84,11 +85,17 @@ wafer-defects/
 
 # Running Inference
 Activate environment with dev_ent.bat
+
 Run inference on sample images: python scripts/test_inference.py
+
   Example Output:
+  
   pred: Center | yolo: True | det: 1
+  
   pred = CNN predicted class
+  
   yolo = whether YOLO was executed
+  
   det = number of detected bounding boxes
 
 # Detailed Technical Report
