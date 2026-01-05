@@ -1,18 +1,120 @@
-# wafer-defects
-AN ANALYSIS OF DEFECT PATTERNS FOR AUTOMATED WAFER DEFECT CLASSIFICATION AND SPATIAL DETECTION
+# Automated Wafer Defect Classification & Spatial Detection
+This project implements an end-to-end machine learning inference pipeline for analyzing semiconductor wafer defects. It combines CNN-based defect classification with conditional YOLO-based spatial localization, reflecting how defect inspection systems are designed and deployed in real environments. The focus of this project is not only model accuracy, but production-style inference, routing logic, and deployability.
 
-Dataset: MIR-WM811K http://mirlab.org/dataset/public/
+# Overview
+1. Classifies the defect type using a convolutional neural network
+2. Conditionally applies YOLO-based object detection where spatial localization is meaningful
+3. Returns structured outputs suitable for APIs, visualization, or downstream automation
 
-Indane Final Project EDA.ipynb: Conducting EDA, class balancing, wafer map resizing, augmentation, reduction, removing isolated defects, forming validation/test/training sets
+# Model Architecture
+Input:
+Grayscale wafer defect map image
+0 = No defect / Background
+1 = Defect
 
-Indane Final Project EDA 2 YOLO.ipynb: Conducing EDA, class balancing, and forming validation/test/training sets for YOLO modeling
+Output:
+One of nine defect classes:
+none
+Loc
+Edge-Loc
+Center
+Edge-Ring
+Scratch
+Random
+Near-full
+Donut
 
-Indane Final Project Feature Creation.ipynb: Creating radial and regional features
+The CNN performs wafer-level defect detection and determines whether spatial localization is required. reducing unnecessary computation.
 
-Indane Final Project RF Modelling.ipynb: Random Forest Model with radial and regional features
+Spatial Detection w/YOLO:
+Executed only for meaningful defect classes:
+Loc
+Edge-Loc
+Center
+Scratch
+Donut
 
-Indane Final Project CNN Modelling.ipynb: Three-block custom CNN Model and results
+# Model Benchmarking
+In addition to the final architecture, this project evaluated alternative architectures to establish performance baselines.
 
-Indane Final Project Pretrained CNN Modelling.ipynb: MobileNetv2 Model and results
+MobileNetv2 was benchmarked as an industry-standard lightweight CNN frequently used in production computer vision systems. Results showed that the custom-designed CNN outperformed MobileNetv2, achieving higher classification accuracy and faster inference latency across all defect classes. A RandomForest model was also benchmarked, providing superior inference latency, but poorly identifying spatially-related classes (Scratch, Edge-Loc, Loc, Edge-Ring).
 
-Indane Final Project YOLO Modelling.ipynb: YOLOv10s Model and results
+# Inference Pipeline
+
+Image → Preprocessing → CNN → (conditional) YOLO → Results
+Core inference logic is implemented in src/wafer/pipeline.py
+
+# Repository Structure
+wafer-defects/
+├── artifacts/
+│ ├── cnn/
+│ │ ├── cnn_model.keras
+│ │ └── classes.json
+│ └── yolo/
+│ └── best.pt
+│
+├── docs/
+│ └── An Analysis of Defect Patterns for Automated Wafer Defect Classification.pdf
+│
+├── notebooks/
+│ ├── EDA.ipynb
+│ ├── CNN Modeling.ipynb
+│ ├── YOLO Modeling.ipynb
+│ └── Additional modeling notebooks
+│
+├── src/
+│ └── wafer/
+│ ├── preprocess.py
+│ ├── pipeline.py
+│ └── init.py
+│
+├── scripts/
+│ └── test_inference.py
+│
+├── service/
+│ └── app.py
+│
+├── tests/
+│ └── data/
+│ └── Sample wafer images for inference testing
+│
+├── dev_env.bat
+├── .gitignore
+└── README.md
+
+# Running Inference
+Activate environment with dev_ent.bat
+Run inference on sample images: python scripts/test_inference.py
+  Example Output:
+  pred: Center | yolo: True | det: 1
+  pred = CNN predicted class
+  yolo = whether YOLO was executed
+  det = number of detected bounding boxes
+
+# Detailed Technical Report
+A comprehensive research-style report accompanies this project and covers:
+• Exploratory data analysis
+• Preprocessing
+• Feature Creations
+• RF/CNN/MobileNetv2/YOLO architecture and training
+• Hyperparameter tuning
+• Model evaluation
+• Benchmarking
+• Design tradeoffs
+Located in docs/An Analysis of Defect Patterns for Automated Wafer Defect Classification.pdf
+
+# Deployment Readiness
+This project was structured with deployment in mind:
+• Separation of preprocessing, inference, and service
+• Conditional routing logic
+• Production style JSON outputs
+• FastAPI service scaffold
+• Docker-ready structure
+
+# Author
+Kaustubh Indane
+M.S. Data Science AI - Northwestern University
+Background in semiconductor process integration
+
+# License
+This project is intended for educational and portfolio purposes only.
