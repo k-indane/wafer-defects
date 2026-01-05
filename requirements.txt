@@ -1,0 +1,15 @@
+# API / server
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-multipart>=0.0.9
+
+# CNN inference
+tensorflow>=2.13
+numpy>=1.23
+
+# YOLO inference
+ultralytics>=8.0
+
+# Preprocessing
+pillow>=10.0
+opencv-python>=4.8
