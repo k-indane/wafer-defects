@@ -116,6 +116,64 @@ docker run --rm -p 8000:8000 wafer-defects:latest
 
 You will recieve a JSON output.
 
+Example:
+```json
+{
+  "ok": true,
+  "model_versions": {
+    "cnn": "1.0.0",
+    "yolo": "1.0.0"
+  },
+  "cnn": {
+    "pred_class": "Center",
+    "top_idx": 8,
+    "probs": {
+      "none": 0.0,
+      "Edge-Ring": 0.0,
+      "Loc": 0.0,
+      "Scratch": 0.0,
+      "Near-full": 0.0,
+      "Donut": 0.0,
+      "Random": 0.0,
+      "Edge-Loc": 0.0,
+      "Center": 1.0
+    }
+  },
+  "routing": {
+    "should_run_yolo": true,
+    "spatial_classes": [
+      "Center",
+      "Donut",
+      "Edge-Loc",
+      "Loc",
+      "Scratch"
+    ]
+  },
+  "yolo": {
+    "ran": true,
+    "detections": [
+      {
+        "cls_id": 0,
+        "cls_name": "Center",
+        "conf": 0.7932320237159729,
+        "xyxy": [
+          16.349590301513672,
+          16.866743087768555,
+          30.86593246459961,
+          29.061891555786133
+        ]
+      }
+    ]
+  },
+  "timing_ms": {
+    "preprocess": 6.0002000027452596,
+    "cnn": 104.23569999693427,
+    "yolo": 53.602100000716746,
+    "total": 163.83800000039628
+  }
+}
+```
+
 #### Annotated Image
 1. Expand POST /pipeline/annotated endpoint
 2. Click 'Try it out'
@@ -123,6 +181,9 @@ You will recieve a JSON output.
 5. Click Execute
 
 You will recieve a PNG image with annotated bounding boxes.
+
+Example:
+![Annotated Center Defect on Wafer](outputs/annotated/center_9355_annotated.png)
 
 You can stop the service in the terminal with 'Ctrl + C'
 
