@@ -106,10 +106,7 @@ docker build -t wafer-defects:latest .
 docker run --rm -p 8000:8000 wafer-defects:latest
 ```
 
-Endpoints:
-
-- Health check: http://localhost:8000/health
-- Interactive API: http://localhost:8000/docs
+- Interactive API Endpoint: http://localhost:8000/docs
 
 ### JSON Inference 
 1. Expand POST /pipeline endpoint
@@ -129,15 +126,15 @@ You will recieve a PNG image with annotated bounding boxes.
 
 You can stop the service in the terminal with 'Ctrl + C'
 
-## Run Inference using curl
+### Run Inference using curl
 
-### JSON Inference
+#### JSON Inference
 
 ```bash
 curl -X POST "http://localhost:8000/pipeline" -F "file=@tests/data/center_9355.png"
 ```
 
-### Annotated Image
+#### Annotated Image
 
 ```bash
 curl -X POST "http://localhost:8000/pipeline" -F "file=@tests/data/center_9355.png" --output annotated.png
