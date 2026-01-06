@@ -108,7 +108,7 @@ docker run --rm -p 8000:8000 wafer-defects:latest
 
 - Interactive API Endpoint: http://localhost:8000/docs
 
-### JSON Inference 
+#### JSON Inference 
 1. Expand POST /pipeline endpoint
 2. Click 'Try it out'
 3. Upload a wafer map image from tests/data/
@@ -116,7 +116,7 @@ docker run --rm -p 8000:8000 wafer-defects:latest
 
 You will recieve a JSON output.
 
-### Annotated Image
+#### Annotated Image
 1. Expand POST /pipeline/annotated endpoint
 2. Click 'Try it out'
 3. Upload a wafer map image from tests/data/
