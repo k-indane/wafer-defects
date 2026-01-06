@@ -183,6 +183,7 @@ Example:
 You will recieve a PNG image with annotated bounding boxes.
 
 Example:
+
 ![Annotated Center Defect on Wafer](outputs/annotated/center_9355_annotated.png)
 
 You can stop the service in the terminal with 'Ctrl + C'
