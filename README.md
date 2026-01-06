@@ -75,37 +75,38 @@ wafer-defects/
 ├── tests/
 │   └── data/
 │       └── Sample wafer images for inference testing
+│
 ├── .gitignore
 ├── requirements.txt
+├── .dockerignore
+├── Dockerfile
 └── README.md
 ```
 
 # Inference Guide
 
-This section explains how to:
-1. Setup python environment
-2. Launch FASTAPI inference service
-3. Run inference via Swagger UI (or)
-4. Run inference via curl (or)
-5. Run inference without FastAPI service using batch script
+This section explains how to perform inference through FastAPI from the Docker image.
 
-## Create and activate environment from repo root (conda example)
+1. Clone the repo
 
-conda create -n wafer-infer python=3.10 -y
+git clone https://github.com/k-indane/wafer-defects/
 
-conda activate wafer-infer
+cd wafer-defects
 
-pip install -r requirements.txt
+2. Build the Docker image
 
-## Launch FastAPI Service
+docker build -t wafer-defects:latest .
 
-uvicorn service.app:app --host 0.0.0.0 --port 8000 --reload
+3. Run the container
 
-### Available endpoints
+docker run --rm -p 8000:8000 wafer-defects:latest
+
+Endpoints:
+
 - Health check: http://localhost:8000/health
-- Interactive API (Swagger UI): http://localhost:8000/docs
+- Interactive API: http://localhost:8000/docs
 
-## Run Inference using Swagger (Recommended)
+### JSON Inference 
 1. Expand POST /pipeline endpoint
 2. Click 'Try it out'
 3. Upload a wafer map image from tests/data/
@@ -113,7 +114,7 @@ uvicorn service.app:app --host 0.0.0.0 --port 8000 --reload
 
 You will recieve a JSON output.
 
-## Annotated image via Swagger (Recommended)
+### Annotated Image
 1. Expand POST /pipeline/annotated endpoint
 2. Click 'Try it out'
 3. Upload a wafer map image from tests/data/
@@ -121,27 +122,19 @@ You will recieve a JSON output.
 
 You will recieve a PNG image with annotated bounding boxes.
 
+You can stop the service in the terminal with 'Ctrl + C'
+
 ## Run Inference using curl
 
-### JSON inference
+### JSON Inference
 
 curl -X POST "http://localhost:8000/pipeline" -F "file=@tests/data/center_9355.png"
 
-### Annoated image output
+### Annotated Image
 
 curl -X POST "http://localhost:8000/pipeline" -F "file=@tests/data/center_9355.png" --output annotated.png
 
-Image will save in current directory.
-
-You can stop FastAPI server in the uvicorn terminal with 'Ctrl + C'
-
-## Batch Annotation Script
-
-The batch annotation script runs inference on all test images in tests/data/ and outputs to outputs/annotated/
-
-Run the script in repo root
-
-python scripts/annotate_test_images.py
+Image will save to disk.
 
 # Detailed Technical Report
 A comprehensive report accompanies this project and covers:

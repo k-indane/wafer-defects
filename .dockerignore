@@ -1,25 +1,20 @@
-# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
-# Conda
 .env
 .env.*
 .conda/
 *.conda
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Jupyter
 .ipynb_checkpoints/
-
-# Local Notes
 **/Running FastAPI Inference.txt
 **/dev_env.bat
-
-# Generated inference outputs
 outputs/
+notebooks/
+docs/
+tests/
+.git/
+.gitignore
+Dockerfile
