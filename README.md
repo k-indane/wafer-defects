@@ -75,6 +75,7 @@ wafer-defects/
 ├── tests/
 │   └── data/
 │       └── Sample wafer images for inference testing
+│ 
 ├── outputs/
 │   └── annotated/
 │       └── Sample JSON and annotated images from tests/data/ images
