@@ -89,17 +89,22 @@ This section explains how to perform inference through FastAPI from the Docker i
 
 1. Clone the repo
 
+'''bash
 git clone https://github.com/k-indane/wafer-defects/
 
 cd wafer-defects
-
+'''
 2. Build the Docker image
 
+'''bash
 docker build -t wafer-defects:latest .
+
 
 3. Run the container
 
+'''bash
 docker run --rm -p 8000:8000 wafer-defects:latest
+'''
 
 Endpoints:
 
@@ -128,11 +133,15 @@ You can stop the service in the terminal with 'Ctrl + C'
 
 ### JSON Inference
 
+'''bash
 curl -X POST "http://localhost:8000/pipeline" -F "file=@tests/data/center_9355.png"
+'''
 
 ### Annotated Image
 
+'''bash
 curl -X POST "http://localhost:8000/pipeline" -F "file=@tests/data/center_9355.png" --output annotated.png
+'''
 
 Image will save to disk.
 
