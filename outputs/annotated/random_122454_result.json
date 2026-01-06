@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "model_versions": {
+    "cnn": "1.0.0",
+    "yolo": "1.0.0"
+  },
+  "cnn": {
+    "pred_class": "Random",
+    "top_idx": 6,
+    "probs": {
+      "none": 0.0019989013671875,
+      "Edge-Ring": 0.0003287792205810547,
+      "Loc": 0.01453399658203125,
+      "Scratch": 0.0014963150024414062,
+      "Near-full": 0.001094818115234375,
+      "Donut": 3.463029861450195e-05,
+      "Random": 0.87158203125,
+      "Edge-Loc": 0.10467529296875,
+      "Center": 0.00400543212890625
+    }
+  },
+  "routing": {
+    "should_run_yolo": false,
+    "spatial_classes": [
+      "Center",
+      "Donut",
+      "Edge-Loc",
+      "Loc",
+      "Scratch"
+    ]
+  },
+  "yolo": {
+    "ran": false,
+    "detections": []
+  },
+  "timing_ms": {
+    "preprocess": 0.180200000613695,
+    "cnn": 25.7114999985788,
+    "yolo": 0.0,
+    "total": 25.891699999192497
+  }
+}

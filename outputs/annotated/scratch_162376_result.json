@@ -1,0 +1,54 @@
+{
+  "ok": true,
+  "model_versions": {
+    "cnn": "1.0.0",
+    "yolo": "1.0.0"
+  },
+  "cnn": {
+    "pred_class": "Scratch",
+    "top_idx": 3,
+    "probs": {
+      "none": 8.851289749145508e-05,
+      "Edge-Ring": 0.0,
+      "Loc": 0.0033740997314453125,
+      "Scratch": 0.99609375,
+      "Near-full": 0.0,
+      "Donut": 0.0,
+      "Random": 0.0,
+      "Edge-Loc": 6.556510925292969e-07,
+      "Center": 0.0
+    }
+  },
+  "routing": {
+    "should_run_yolo": true,
+    "spatial_classes": [
+      "Center",
+      "Donut",
+      "Edge-Loc",
+      "Loc",
+      "Scratch"
+    ]
+  },
+  "yolo": {
+    "ran": true,
+    "detections": [
+      {
+        "cls_id": 4,
+        "cls_name": "Scratch",
+        "conf": 0.9152309894561768,
+        "xyxy": [
+          0.20837008953094482,
+          21.6571102142334,
+          36.38349533081055,
+          41.318965911865234
+        ]
+      }
+    ]
+  },
+  "timing_ms": {
+    "preprocess": 0.1689000018814113,
+    "cnn": 28.39749999839114,
+    "yolo": 8.04930000231252,
+    "total": 36.61570000258507
+  }
+}

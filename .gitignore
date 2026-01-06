@@ -20,6 +20,3 @@ Thumbs.db
 # Local Notes
 **/Running FastAPI Inference.txt
 **/dev_env.bat
-
-# Generated inference outputs
-outputs/

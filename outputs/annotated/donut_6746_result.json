@@ -1,0 +1,54 @@
+{
+  "ok": true,
+  "model_versions": {
+    "cnn": "1.0.0",
+    "yolo": "1.0.0"
+  },
+  "cnn": {
+    "pred_class": "Donut",
+    "top_idx": 5,
+    "probs": {
+      "none": 0.0,
+      "Edge-Ring": 0.0,
+      "Loc": 0.0,
+      "Scratch": 0.0,
+      "Near-full": 0.0,
+      "Donut": 1.0,
+      "Random": 0.0,
+      "Edge-Loc": 0.0,
+      "Center": 0.0
+    }
+  },
+  "routing": {
+    "should_run_yolo": true,
+    "spatial_classes": [
+      "Center",
+      "Donut",
+      "Edge-Loc",
+      "Loc",
+      "Scratch"
+    ]
+  },
+  "yolo": {
+    "ran": true,
+    "detections": [
+      {
+        "cls_id": 1,
+        "cls_name": "Donut",
+        "conf": 0.9458855986595154,
+        "xyxy": [
+          9.973048210144043,
+          10.014434814453125,
+          34.880245208740234,
+          36.824581146240234
+        ]
+      }
+    ]
+  },
+  "timing_ms": {
+    "preprocess": 0.2158999996026978,
+    "cnn": 29.702799998631235,
+    "yolo": 8.283600000140723,
+    "total": 38.202299998374656
+  }
+}

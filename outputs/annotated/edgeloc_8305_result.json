@@ -1,0 +1,54 @@
+{
+  "ok": true,
+  "model_versions": {
+    "cnn": "1.0.0",
+    "yolo": "1.0.0"
+  },
+  "cnn": {
+    "pred_class": "Edge-Loc",
+    "top_idx": 7,
+    "probs": {
+      "none": 1.150369644165039e-05,
+      "Edge-Ring": 0.00015234947204589844,
+      "Loc": 6.109476089477539e-05,
+      "Scratch": 0.0,
+      "Near-full": 0.0,
+      "Donut": 0.0,
+      "Random": 0.0,
+      "Edge-Loc": 1.0,
+      "Center": 0.0
+    }
+  },
+  "routing": {
+    "should_run_yolo": true,
+    "spatial_classes": [
+      "Center",
+      "Donut",
+      "Edge-Loc",
+      "Loc",
+      "Scratch"
+    ]
+  },
+  "yolo": {
+    "ran": true,
+    "detections": [
+      {
+        "cls_id": 3,
+        "cls_name": "Edgeloc",
+        "conf": 0.8438206911087036,
+        "xyxy": [
+          0.1873965561389923,
+          21.130290985107422,
+          28.63609504699707,
+          44.97206497192383
+        ]
+      }
+    ]
+  },
+  "timing_ms": {
+    "preprocess": 0.20199999926262535,
+    "cnn": 29.288900001120055,
+    "yolo": 7.13999999788939,
+    "total": 36.63089999827207
+  }
+}
