@@ -31,9 +31,6 @@ Spatial Detection w/YOLO executed only for meaningful defect classes:
 - Scratch
 - Donut
 
-# Model Benchmarking
-In addition to the final architecture, this project evaluated alternative architectures to establish performance baselines. MobileNetv2 was benchmarked as an industry-standard lightweight CNN frequently used in production computer vision systems. Results showed that the custom-designed CNN outperformed MobileNetv2, achieving higher classification accuracy and faster inference latency across all defect classes. A RandomForest model was also benchmarked, providing superior inference latency, but poorly identifying spatially-related classes (Scratch, Edge-Loc, Loc, Edge-Ring).
-
 # Inference Pipeline
 
 Image → Preprocessing → CNN → (conditional) YOLO → Results
@@ -207,6 +204,9 @@ curl -X POST "http://localhost:8000/pipeline" -F "file=@tests/data/center_9355.p
 ```
 
 Image will save to disk.
+
+# Model Benchmarking
+In addition to the final architecture, this project evaluated alternative architectures to establish performance baselines. MobileNetv2 was benchmarked as an industry-standard lightweight CNN frequently used in production computer vision systems. Results showed that the custom-designed CNN outperformed MobileNetv2, achieving higher classification accuracy and faster inference latency across all defect classes. A RandomForest model was also benchmarked, providing superior inference latency, but poorly identifying spatially-related classes (Scratch, Edge-Loc, Loc, Edge-Ring).
 
 # Detailed Technical Report
 A comprehensive report accompanies this project and covers:
